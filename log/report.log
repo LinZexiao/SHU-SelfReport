@@ -1,0 +1,22 @@
+2021-09-08 06:45:00 base.py[line:123] INFO Running job "Launcher.main (trigger: cron[hour='6', minute='45'], next run at: 2021-09-09 06:45:00 CST)" (scheduled at 2021-09-08 06:45:00+08:00)
+2021-09-08 06:45:01 login.py[line:46] INFO [user]:19123333 -- login success
+2021-09-08 06:45:01 generator.py[line:35] INFO [user]:19123333 -- get viewstate success
+2021-09-08 06:45:01 report.py[line:71] INFO [user]:19123333 -- report success
+2021-09-08 06:45:01 send_email.py[line:26] INFO smtp connect success
+2021-09-08 06:45:04 send_email.py[line:77] INFO [user]:test@autoreport.com -- send email success
+2021-09-08 06:46:05 login.py[line:46] INFO [user]:19124444 -- login success
+2021-09-08 06:46:05 generator.py[line:35] INFO [user]:19124444 -- get viewstate success
+2021-09-08 06:46:05 report.py[line:71] INFO [user]:19124444 -- report success
+2021-09-08 06:46:05 send_email.py[line:26] INFO smtp connect success
+2021-09-08 06:46:07 send_email.py[line:77] INFO [user]:1283471238491234@qq.com -- send email success
+2021-09-09 06:45:00 base.py[line:123] INFO Running job "Launcher.main (trigger: cron[hour='6', minute='45'], next run at: 2021-09-10 06:45:00 CST)" (scheduled at 2021-09-09 06:45:00+08:00)
+2021-09-09 06:45:01 login.py[line:46] INFO [user]:19123333 -- login success
+2021-09-09 06:45:01 generator.py[line:35] INFO [user]:19123333 -- get viewstate success
+2021-09-09 06:45:01 report.py[line:71] INFO [user]:19123333 -- report success
+2021-09-09 06:45:02 send_email.py[line:26] INFO smtp connect success
+2021-09-09 06:45:04 send_email.py[line:77] INFO [user]:test@autoreport.com -- send email success
+2021-09-09 06:46:05 login.py[line:46] INFO [user]:19124444 -- login success
+2021-09-09 06:46:05 generator.py[line:35] INFO [user]:19124444 -- get viewstate success
+2021-09-09 06:46:05 report.py[line:71] INFO [user]:19124444 -- report success
+2021-09-09 06:46:06 send_email.py[line:26] INFO smtp connect success
+2021-09-09 06:46:08 send_email.py[line:77] INFO [user]:1283471238491234@qq.com -- send email success 
