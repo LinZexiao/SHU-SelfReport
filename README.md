@@ -1,4 +1,4 @@
- ![每日一报](https://img.shields.io/badge/%E6%AF%8F%E6%97%A5%E4%B8%80%E6%8A%A5-v1.0.0-brightgreen) ![APScheduler](https://img.shields.io/badge/APScheduler-v3.7.0-orange)
+ ![每日一报](https://img.shields.io/badge/%E6%AF%8F%E6%97%A5%E4%B8%80%E6%8A%A5-v1.0.2-brightgreen) ![APScheduler](https://img.shields.io/badge/APScheduler-v3.7.0-orange)
 
 # 上海大学每日一报
 
@@ -13,8 +13,9 @@
 - [x] 模块划分清晰
 - [x] 历史补报
 - [x] 自由配置报送信息
+- [x] 定时报送
 - [x] 多用户报送(可选)
-- [x] 邮件提醒(可选)
+- [x] 报送成功/失败邮件提醒(可选)
 
 ## 代码结构
 
@@ -55,14 +56,18 @@ current_address_region = 宝山区		# 当日所在区
 current_address_detail = 校内XX楼		# 具体地址
 is_family_address = False			# 是否家庭住址
 
+
 [email] # 全局配置，新增用户时，无需新增
 smtp_server = smtp.exmail.qq.com		# 邮件服务器地址，示例为腾讯企业邮箱
-username = knight@fomal-haut.com		# 邮箱账户
-password = sddfsdqfdjUwdvsa				# 邮箱授权码
+admin = 2348134234@qq.com     # 报送失败时给管理员发送邮件
+username = knight@test.com		# 邮箱账户
+password = sddfsdqfdjUwsfadfasdvsa				# 邮箱授权码
 
 success_subject = 每日一报成功提醒      # text邮件提醒主题
 success_text = 今天的每日一报成功啦!	  # text类型邮件提醒正文
 
+admin_fail_subject = 每日一报失败提醒
+admin_fail_text = 亲爱的管理员,今天的每日一报失败了,报送失败用户id:
 ```
 
 - 若新增报送用户，在配置文件中新增[user:昵称]，如：[user:Bob],具体内容与示例中Leo用户的配置类似。
@@ -71,7 +76,9 @@ success_text = 今天的每日一报成功啦!	  # text类型邮件提醒正文
 
 - 若需要开启报送邮件提醒，设置success_email = True，否则为False。
 
-- 邮件提醒设置了两种类型，html和text
+- 邮件提醒设置了两种类型，html和text。
+
+- 多用户时,若有一个或多个用户填报失败，会发送邮件给管理员。
 
   - html格式邮件示例如下，用户可在success_email.html文件中自行进行更改:
 
@@ -88,11 +95,21 @@ cd SHU_SelfReport
 pip install -r requirements.txt
 pyhton main.py
 ```
-
+## 定时报送
+报送时间可在main.py中修改hour与minute,此处示例为早上六点五十
+```
+scheduler.add_job(func=launcher.main, trigger='cron', hour=6, minute=50, id='cron_task')
+```
 ## 联系
-若有任何疑问，请联系:knight@fomal-haut.com
+若有任何疑问，请联系:knight@fm-cslab.com
 
+## ChangeLog
 
+**2021.09-18**
+> v1.0.0: 第一个版本
+
+**2021-10-26**
+> v1.0.2: 学校对页面元素进行了微调，因此对报送数据进行了修改，并增加了管理员邮件提醒
 
 
 

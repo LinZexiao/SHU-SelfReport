@@ -1,5 +1,5 @@
 report_data = {
-    "__EVENTTARGET": "p1$ctl01$btnSubmit",
+    "__EVENTTARGET": "p1$ctl02$btnSubmit",
     "__EVENTARGUMENT": "",
     "__VIEWSTATEGENERATOR": "7AD7E509",
     "p1$JiuYe_ShouJHM": "",
@@ -23,8 +23,8 @@ report_data = {
     "p1$JieChu_RiQi":"",
     "p1$JieChu_BeiZhu": "",
     "p1$TuJWH": "否",                 # 是否乘坐公共交通途径中高风险地区
-    "p1$TuJWH_RiQi": "", 
-    "p1$TuJWH_BeiZhu": "", 
+    "p1$TuJWH_RiQi": "",
+    "p1$TuJWH_BeiZhu": "",
     "p1$QueZHZJC$Value": "否",        # 是否曾与确诊患者接触
     "p1$QueZHZJC": "否",             # 是否曾与确诊患者接触
     "p1$DangRGL": "否",             # 当日是否隔离
@@ -38,10 +38,14 @@ report_data = {
     "p1$JiaRen_BeiZhu": "",         # 家人发热情况
     "p1$SuiSM": "绿色",             # 随申码颜色
     "p1$LvMa14Days": "是",          # 14天绿码
-    "F_TARGET": "p1_ctl01_btnSubmit",
     "p1_pnlDangSZS_Collapsed": "false",
     "p1_ContentPanel1_Collapsed": "true",
+    "p1_pImages_Collapsed": "false",
     "p1_GeLSM_Collapsed": "false",
     "p1_Collapsed": "false",
+    "X-FineUI-Ajax": "true",
+    "F_TARGET": " p1_ctl02_btnSubmit",
+    "p1$pImages$fileSuiSM": "(二进制)",
+    "p1$pImages$fileXingCM": "(二进制)"
 }
 

@@ -35,8 +35,9 @@ logging.basicConfig(level=logging.INFO,
 
 class Launcher:
 
-    REPORT_TIMEOUT = 60
-
+    REPORT_TIMEOUT = 45                             # 报送时间间隔
+    ADMIN_EMAIL = config['email']['admin']
+    
     def __init__(self) -> None:
         self.loginer =  Loginer()                   # 登录器
         self.reporter = Reporter()                  # 报送器
@@ -81,6 +82,8 @@ class Launcher:
                             if report_result:
                                 if ast.literal_eval(user_info["success_email"]):
                                     self.emailer.send_email(history_date, user_info['email_address'], user_info['email_type'])
+                            else:
+                                self.emailer.send_email(today, self.ADMIN_EMAIL, email_type=user_info['email_type'], identity="admin", user_id=user_info['username'])
                             time.sleep(self.REPORT_TIMEOUT)
                             history_date = history_date + datetime.timedelta(days=1)
                     else:
@@ -89,8 +92,11 @@ class Launcher:
                         if report_result:
                             if ast.literal_eval(user_info["success_email"]):
                                 self.emailer.send_email(today, user_info['email_address'], email_type=user_info['email_type'])
+                        else:
+                            self.emailer.send_email(today, self.ADMIN_EMAIL, email_type=user_info['email_type'], identity="admin", user_id=user_info['username'])
                 time.sleep(self.REPORT_TIMEOUT)
         except:
+            self.emailer.send_email(today, self.ADMIN_EMAIL, email_type=user_info['email_type'], identity="admin")
             logging.info(f"Report fail")
             logging.info(traceback.format_exc())
 
@@ -102,10 +108,12 @@ def crontab_listener(event):
         logging.info('autoreport success...')
 
 
+
 if __name__ == "__main__":
     scheduler = BlockingScheduler()
     launcher = Launcher()
-    scheduler.add_job(func=launcher.main, trigger='cron', hour=6, minute=45, id='cron_task')
+    # launcher.main()
+    scheduler.add_job(func=launcher.main, trigger='cron', hour=6, minute=50, id='cron_task')
 
     # 配置任务执行完成和执行错误的监听
     scheduler.add_listener(crontab_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
